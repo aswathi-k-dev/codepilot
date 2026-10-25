@@ -1,0 +1,92 @@
+# api call for creating admin account
+###
+POST  http://127.0.0.1:8000/accounts/admin/register/ 
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "email":"admin@gmail.com",
+    "password":"admin@123",
+    "phone":8976543221
+}
+
+#api call for creating student account
+###
+POST http://127.0.0.1:8000/accounts/student/register/ 
+Content-Type: application/json
+
+{
+    "username":"abhi",
+    "email":"abhi@gmail.com",
+    "password":"abhi@123",
+    "phone":9847657834
+}
+
+#==== TOKEN GENERATION =====
+
+#api call for token generating
+###
+POST http://127.0.0.1:8000/exams/assessments/token/ 
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"admin@123"
+}
+
+
+#============== ASSESMENT API ====================
+
+# api call for list assesmnts
+###
+GET http://127.0.0.1:8000/exams/assessments/ 
+Accept: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+# api call for creating assesmnts
+###
+POST http://127.0.0.1:8000/exams/assessments/create/
+Content-Type: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+{
+    "title": "Django Assessment",
+    "batch": "Python Batch 1",
+    "language": "SQL",
+    "exam_date": "2026-11-2",
+    "duration": 2,
+    "start_time": "08:00",
+    "status": "UPCOMING"
+}
+
+#api call for fetching
+###
+GET http://127.0.0.1:8000/exams/assessments/1/ 
+Accept: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+#api call for updating
+###
+PUT http://127.0.0.1:8000/exams/assessments/1/ 
+Content-Type: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+{
+  "id": 1,
+  "title": "Python Assessment",
+  "batch": "Python Batch 1",
+  "language": "PYTHON",
+  "exam_date": "2026-10-30",
+  "duration": 2,
+  "start_time": "09:00:00",
+  "status": "UPCOMING",
+  "created_by": 1
+}
+
+#api call for deleting assesments
+###
+DELETE http://127.0.0.1:8000/exams/assessments/3/ 
+Accept: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+
