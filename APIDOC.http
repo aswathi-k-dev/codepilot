@@ -30,8 +30,8 @@ POST http://127.0.0.1:8000/exams/assessments/token/
 Content-Type: application/json
 
 {
-    "username":"admin",
-    "password":"admin@123"
+    "username":"abhi",
+    "password":"abhi@123"
 }
 
 
@@ -50,9 +50,9 @@ Content-Type: application/json
 Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
 
 {
-    "title": "Django Assessment",
-    "batch": "Python Batch 1",
-    "language": "SQL",
+    "title": "Django phase 2 Assessment",
+    "batch": "Python Batch 2",
+    "language": "PYTHON",
     "exam_date": "2026-11-2",
     "duration": 2,
     "start_time": "08:00",
@@ -88,5 +88,64 @@ Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
 DELETE http://127.0.0.1:8000/exams/assessments/3/ 
 Accept: application/json
 Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+
+#====question endpoints=====
+
+#api call for adding questions
+###
+POST http://127.0.0.1:8000/problems/assessment/4/question/
+Content-Type: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+{
+    "title":"create a django projectcard for fitness tracker",
+    "description": "create a django projectcard for fitness tracker",
+    "score":100 
+}
+
+#api call for retrieve
+###
+GET http://127.0.0.1:8000/problems/assessment/question/1/
+Accept: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+#api call for update
+###
+PUT  http://127.0.0.1:8000/problems/assessment/question/1/
+Content-Type:  application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+{
+  "id": 1,
+  "title": "write a program to add two numbers",
+  "description": "write a program to add two numbers without using sum()",
+  "score": 10,
+  "sample_input": "num1 = 10,num2 = 20",
+  "sample_output": "result = 30",
+  "created_at": "2026-10-26T14:03:53.612450Z",
+  "updated_at": "2026-10-26T14:03:53.612486Z",
+  "assessment": 1,
+  "created_by": 1
+}
+
+#==== submisssion endpoints ======
+
+#api call for starting assessment
+###
+POST http://127.0.0.1:8000/evaluation/assessment/1/submission/ 
+Content-Type: application/json
+Authorization: Token 9af4f61a2bb5baeed9eaf72a8af8d70f0902c025
+
+#api call for add answers
+###
+POST http://127.0.0.1:8000/evaluation/submission/1/answer/ 
+Content-Type: application/json
+Authorization: Token 9af4f61a2bb5baeed9eaf72a8af8d70f0902c025
+
+{
+    "question":1,
+    "answer_text":"a = int(input())\nb = int(input())\nprint(a + b)"
+}
 
 
