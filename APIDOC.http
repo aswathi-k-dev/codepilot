@@ -16,10 +16,10 @@ POST http://127.0.0.1:8000/accounts/student/register/
 Content-Type: application/json
 
 {
-    "username":"abhi",
-    "email":"abhi@gmail.com",
-    "password":"abhi@123",
-    "phone":9847657834
+    "username":"yadhu",
+    "email":"yadhu@gmail.com",
+    "password":"yadhu@123",
+    "phone":9847657823
 }
 
 #==== TOKEN GENERATION =====
@@ -30,8 +30,8 @@ POST http://127.0.0.1:8000/exams/assessments/token/
 Content-Type: application/json
 
 {
-    "username":"abhi",
-    "password":"abhi@123"
+    "username":"yadhu",
+    "password":"yadhu@123"
 }
 
 
@@ -135,17 +135,37 @@ Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
 ###
 POST http://127.0.0.1:8000/evaluation/assessment/1/submission/ 
 Content-Type: application/json
-Authorization: Token 9af4f61a2bb5baeed9eaf72a8af8d70f0902c025
+Authorization: Token 541fec328efeb4b95b57e61b18685791475707fa
+
 
 #api call for add answers
 ###
-POST http://127.0.0.1:8000/evaluation/submission/1/answer/ 
+POST http://127.0.0.1:8000/evaluation/submission/3/answer/ 
 Content-Type: application/json
-Authorization: Token 9af4f61a2bb5baeed9eaf72a8af8d70f0902c025
+Authorization: Token 541fec328efeb4b95b57e61b18685791475707fa
 
 {
-    "question":1,
-    "answer_text":"a = int(input())\nb = int(input())\nprint(a + b)"
+    "question":5,
+    "answer_text":"a = int(input()) b = int(input()) print(a + b)"
+}
+
+
+#api call for retrieve submission
+###
+GET http://127.0.0.1:8000/evaluation/submission/3/ 
+Accept: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e 
+
+
+# evaluate answers
+###
+PUT http://127.0.0.1:8000/evaluation/answer/1/ 
+Content-Type: application/json
+Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
+
+{
+    "marks_awarded":2,
+    "feedback":"poor"
 }
 
 
