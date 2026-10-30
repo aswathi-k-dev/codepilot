@@ -39,7 +39,13 @@ class SubmissionSerializer(serializers.ModelSerializer):
 
         #     return fields
 
+
+from problem.models import Question
+
 class AnswerSerializer(serializers.ModelSerializer):
+
+
+    question = serializers.PrimaryKeyRelatedField(queryset = Question.objects.all())
 
     class Meta:
         model = Answer
@@ -49,5 +55,6 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 
-        
+
+
 

@@ -152,20 +152,23 @@ Authorization: Token 541fec328efeb4b95b57e61b18685791475707fa
 
 #api call for retrieve submission
 ###
-GET http://127.0.0.1:8000/evaluation/submission/3/ 
+GET http://127.0.0.1:8000/evaluation/submission/1/ 
 Accept: application/json
 Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e 
 
 
 # evaluate answers
 ###
-PUT http://127.0.0.1:8000/evaluation/answer/1/ 
+PATCH  http://127.0.0.1:8000/evaluation/answers/1/ 
 Content-Type: application/json
 Authorization: Token 3245012543f75886ed57b74137fb6e386032f21e
 
 {
-    "marks_awarded":2,
-    "feedback":"poor"
+    "marks_awarded":20,
+    "feedback":"good"
 }
+
+
+
 
 
